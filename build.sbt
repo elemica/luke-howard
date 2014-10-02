@@ -1,6 +1,6 @@
 name := "luke-howard"
 
-version := "0.2.0-SNAPSHOT"
+version := "0.2.0"
 
 organization := "com.elemica.cloudsearch"
 
