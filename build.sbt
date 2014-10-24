@@ -17,3 +17,37 @@ libraryDependencies <++= scalaVersion {
   )
   case _ => Seq()
 }
+
+pomExtra :=
+<url>http://github.com/elemica/luke-howard</url>
+<licenses>
+  <license>
+    <name>Apache 2</name>
+    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    <distribution>repo</distribution>
+  </license>
+</licenses>
+<scm>
+  <url>https://github.com/elemica/luke-howard.git</url>
+  <connection>https://github.com/elemica/luke-howard.git</connection>
+</scm>
+<developers>
+  <developer>
+    <id>farmdawgnation</id>
+    <name>Matt Farmer</name>
+    <email>matt@frmr.me</email>
+  </developer>
+  <developer>
+    <id>pdyraga</id>
+    <name>Piotr Dyraga</name>
+    <email>piotr.dyraga@softwaremill.com</email>
+  </developer>
+</developers>
+
+publishTo <<= version { (v: String) =>
+  val nexus = "https://oss.sonatype.org/"
+  if (v.trim.endsWith("SNAPSHOT"))
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
